@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <!-- Imagem da logo (Ajustada para tamanho adequado) -->
+    <ImageView
+        android:id="@+id/img_logo"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/logo"
+        android:contentDescription="Logo da Hamburgueria"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Campo para nome do cliente -->
+    <EditText
+        android:id="@+id/et_nome_cliente"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Digite seu nome"
+        android:padding="12dp"
+        android:background="@drawable/rounded_edittext"
+        app:layout_constraintTop_toBottomOf="@id/img_logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Informação do preço do hambúrguer -->
+    <TextView
+        android:id="@+id/tv_preco_hamburguer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hambúrguer R$ 15,00"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/et_nome_cliente"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="12dp"/>
+
+    <!-- Título dos adicionais -->
+    <TextView
+        android:id="@+id/tv_adicionais"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Escolha os adicionais:"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/tv_preco_hamburguer"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Lista de adicionais (CheckBoxes) -->
+    <CheckBox
+        android:id="@+id/cb_bacon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bacon (+ R$ 3,00)"
+        app:layout_constraintTop_toBottomOf="@id/tv_adicionais"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <CheckBox
+        android:id="@+id/cb_queijo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Queijo Extra (+ R$ 2,50)"
+        app:layout_constraintTop_toBottomOf="@id/cb_bacon"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <CheckBox
+        android:id="@+id/cb_molho"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Molho Especial (+ R$ 1,50)"
+        app:layout_constraintTop_toBottomOf="@id/cb_queijo"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <CheckBox
+        android:id="@+id/cb_cebola"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cebola Crispy (+ R$ 2,00)"
+        app:layout_constraintTop_toBottomOf="@id/cb_molho"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <CheckBox
+        android:id="@+id/cb_alface"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Alface e Tomate (+ R$ 2,00)"
+        app:layout_constraintTop_toBottomOf="@id/cb_cebola"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="12dp"/>
+
+    <!-- Seção de quantidade -->
+    <TextView
+        android:id="@+id/tv_quantidade_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quantidade de Hambúrgueres:"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/cb_alface"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:id="@+id/btn_subtrair"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:text="-"
+        android:textSize="24sp"
+        android:backgroundTint="@color/pink"
+        app:layout_constraintTop_toBottomOf="@id/tv_quantidade_label"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_quantidade_hamburguer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/tv_quantidade_label"
+        app:layout_constraintStart_toEndOf="@id/btn_subtrair"
+        app:layout_constraintEnd_toStartOf="@id/btn_adicionar"
+        android:layout_marginHorizontal="16dp"/>
+
+    <Button
+        android:id="@+id/btn_adicionar"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:text="+"
+        android:textSize="24sp"
+        android:backgroundTint="@color/pink"
+        app:layout_constraintTop_toBottomOf="@id/tv_quantidade_label"
+        app:layout_constraintStart_toEndOf="@id/tv_quantidade_hamburguer"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Exibição do preço total -->
+    <TextView
+        android:id="@+id/tv_preco_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Preço total: R$ 0,00"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/btn_subtrair"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <!-- Botão para enviar o pedido -->
+    <Button
+        android:id="@+id/btn_enviar_pedido"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Finalizar Pedido"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@color/pink"
+        app:layout_constraintTop_toBottomOf="@id/tv_preco_total"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
